@@ -1,19 +1,26 @@
 import styled, { keyframes } from "styled-components";
-const loremIpsum =
-  "Lorem ipsum dolor sit amet consectetur adipiscing elit posuere pharetra aliquam turpis, magna molestie blandit placerat auctor cursus nec sociosqu dis cum, id scelerisque libero vulputate hac nunc bibendum feugiat nullam tempor.";
+const texts = [
+  "Lorem ipsum dolor sit amet consectetur adipiscing elit posuere pharetra aliquam turpis, magna molestie blandit placerat auctor cursus nec sociosqu dis cum, id scelerisque libero vulputate hac nunc bibendum feugiat nullam tempor, Lorem ipsum dolor sit amet consectetur adipiscing elit posuere pharetra aliquam turpis, magna molestie blandit placerat auctor cursus nec sociosqu dis cum, id scelerisque libero vulputate hac nunc bibendum feugiat nullam tempor, Lorem ipsum dolor sit",
+  "Lorem ipsum dolor sit amet consectetur adipiscing elit posuere pharetra aliquam turpis, magna molestie blandit placerat auctor cursus nec sociosqu dis cum, id scelerisque libero vulputate hac nunc bibendum feugiat nullam tempor"
+]
 const BodyContent = ({ background }) => {
   return (
-    <BodyContentContainer>
-      <span>{loremIpsum}</span>
-      <Square background={background} />
-    </BodyContentContainer>
+    <>
+      <BodyContentContainer>
+        <span>{texts[0]}</span>
+        <Square background={background} />
+        <span>{texts[1]}</span>
+        <Square background={background} />
+      </BodyContentContainer>
+    </>
+    
   );
 };
 
 export const BodyContentContainer = styled.div`
   display: grid;
   width: 200px;
-  height: 30px;
+  height: 50vh;
   overflow-y: auto;
   flex-direction: column;
   gap: 20px;
@@ -23,12 +30,12 @@ export const BodyContentContainer = styled.div`
 
 const Animation = keyframes`
   from {
-    opacity: 0%;
+    opacity: 0;
     scale: 25%;
   }
 
   to{
-    opacity: 1%;
+    opacity: 1;
     scale: 100%;
   }
 `;
@@ -40,11 +47,14 @@ const Square = styled.div`
   border: 3px dashed black;
   background: ${({ background }) => (background ? background : "lightblue")};
 
-  view-timeline-name: --sqare;
+  view-timeline-name: --square;
   view-timeline-axis: block;
 
   animation-timeline: --square;
   animation-name: ${Animation};
+
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
 `;
 
 export default BodyContent;

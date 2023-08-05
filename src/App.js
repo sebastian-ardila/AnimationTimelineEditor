@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useParams } from "./hooks/useParams";
 import { useBodyContent } from "./hooks/useBodyContent";
-import { Resizable } from "react-resizable";
+
 import BodyContent from "./BodyContent";
 import AnimationTimeLineEditor from "./AnimationTimelineEditor";
 export default function App() {
@@ -18,9 +18,7 @@ export default function App() {
         <h1>Animation-Timeline Editor</h1>
       </Header>
       <Container>
-        <Resizable width={width} height={height} onResize={onResize}>
-          <BodyContent background={background} />
-        </Resizable>
+        <BodyContent background={background} />
         <AnimationTimeLineEditor setBackground={setBackground} />
       </Container>
     </>
@@ -39,5 +37,4 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   gap: 30px;
-  height: 500px;
 `;

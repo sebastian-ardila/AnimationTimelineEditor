@@ -18,7 +18,7 @@ const AnimationTimelineEditor = ({ setBackground }) => {
 export const AnimationTimelineEditorContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px;  
   padding: 30px;
   width: 200px;
   background: lightgoldenrodyellow;
