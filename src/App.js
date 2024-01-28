@@ -29,9 +29,12 @@ export default function App() {
 
   return (
     <>
-      <Header>
-        <h1>Animation-Timeline Editor</h1>
-      </Header>
+      <HeaderContainer>
+        <Header>
+          <h1>Animation-Timeline Editor</h1>
+        </Header>
+        <p>This is a helper to use the property animation-timeline of CSS that allow css to do more easy animations. For more, check the official documentation in <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline">MDN</a></p>
+      </HeaderContainer>
       <Container>
         <BodyContent 
           propertyTitles={propertyTitles}
@@ -53,9 +56,16 @@ export default function App() {
   );
 }
 
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10vmax;
+`;
+
 export const Header = styled.div`
   width: 100%;
-  margin: 10px;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
